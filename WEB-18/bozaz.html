@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bozaz Products</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            width:90%;
+            margin: auto;
+
+        }
+        .container>div:nth-child(){
+            width:80%;
+            margin: auto;
+            background-color: white;
+            padding: 40px 0px;
+            justify-content: space-between;
+
+
+        }
+        input,select{
+            display: block;
+            width: 80%;
+            margin:  10 px auto;
+            padding: 1% 5px;
+
+
+        }
+        #products>div{
+            width:20%;
+            background-color: azure;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Add Some PRoducts</h1>
+            <form id="form"> 
+                <select>
+                    <option value=" electronics">electronics </option>
+                    <option value="furniture">furniture</option>
+                    <option value=" home "> appliance</option>
+                    
+                    <option value="books "></option>
+                </select>
+                <input  id="title" type="text">
+                <input id="desc" type="text">
+                <input  id="price" type="text">
+                <input type="submit">
+            </form>
+        </div>
+        <div id="products">
+
+        </div>
+    </div>
+</body>
+</html>
+<script>
+var form=document.querySelector("#form");
+
+var products=document.querySelector("#products")
+
+function display(data)
+{
+    var parent=document.createElement("div")
+
+    var heading=document.createElement("h2");
+    heading.innerText=data.catogory;
+
+    var title=document.createElement("p");
+    tittle.innerText=data.title;
+
+    var desc=document.createElement("p");
+    tittle.innerText=data.desc;
+
+    var price=document.createElement("p");
+    tittle.innerText=data.price;
+
+    var btn=document.createElement("button");
+    btn.innerText="DELETE"
+    btn.addEventListener("click",function(event){
+        event.taget,parenNotde.remove();
+    })
+    parent.append(heading,title,desc,price,btn)
+
+    products.append(parent);
+}
+
+    form.addEventListener("submit",function(event){
+        event.preventDefault()
+
+
+        var data={
+            title:form.title.value,
+            desc:form.desc.value,
+            price:form.price.value,
+            catagory:form.catogory.value,
+        }
+        display(data);
+
+
+
+    })
+
+
+
+</script>
